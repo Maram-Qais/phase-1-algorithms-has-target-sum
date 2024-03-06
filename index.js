@@ -1,14 +1,23 @@
-function hasTargetSum(array, target) {
-  // Write your algorithm here
+
+
+function hasTargetSum(nums, target) {
+  const seen = new Set();
+  for (let num of nums) {
+      const complement = target - num;
+      if (seen.has(complement)) {
+          return true;
+      }
+      seen.add(num);
+  }
+  return false;
 }
 
-/* 
-  Write the Big O time complexity of your function here
-*/
+console.log(hasTargetSum([3, 8, 12, 4, 11, 7], 10)); // true
+console.log(hasTargetSum([22, 19, 4, 6, 30], 25));   // true
+console.log(hasTargetSum([1, 2, 5], 4));             // false
+console.log(hasTargetSum([1, 2, 3, 4, 5], 10));      // true
+console.log(hasTargetSum([-1, 0, 1], 0));            // true
 
-/* 
-  Add your pseudocode here
-*/
 
 /*
   Add written explanation of your solution here
